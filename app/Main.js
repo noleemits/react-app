@@ -1,28 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-function ExampleComponent() {
+//components
+import Header from "./components/Header";
+import HomeGuest from "./components/HomeGuest";
+import Footer from "./components/Footer";
+function Main() {
   return (
-    <div>
-      <h1>The sky is blue, yes sir</h1>
-      <p>Yes it is</p>
-    </div>
+    <>
+      <Header />
+      <HomeGuest />
+      <Footer />
+    </>
   );
 }
 
 const root = ReactDOM.createRoot(document.querySelector("#app"));
-root.render(<ExampleComponent />);
+root.render(<Main />);
 if (module.hot) {
   module.hot.accept();
 }
-
-const entryContent = document.querySelector("#et-main-area");
-const TabularMenuSection = document.querySelector("#TabularMenuSection");
-function addPaddingTop() {
-  if (getComputedStyle(TabularMenuSection, null).display == "block" && window.innerWidth > 769) {
-    entryContent.style.paddingTop = "60px";
-  }
-}
-addPaddingTop();
-
-window.addEventListener("resize", myFunction);
