@@ -8,4 +8,4 @@ function ComponentName() {
   );
 }
 
-export default ComponentName;
+//export default ComponentName;
