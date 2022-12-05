@@ -13,7 +13,7 @@ function Header(props) {
             ComplexApp{" "}
           </Link>
         </h4>
-        {props.loggedIn ? <HeaderLoggedIn setLoggedIn={props.setLoggedIn} /> : <LoggedOut setLoggedIn={props.setLoggedIn} />}
+        {props.loggedIn ? <HeaderLoggedIn /> : <LoggedOut />}
       </div>
     </header>
   );
