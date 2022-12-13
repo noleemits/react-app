@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import Page from "./Page";
 import Axios from "axios";
-import ExampleContext from "../ExampleContext";
+import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 
 function LoggedOut(props) {
-  const { setLoggedIn } = useContext(ExampleContext);
+  const appDispatch = useContext(DispatchContext);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
@@ -13,10 +14,7 @@ function LoggedOut(props) {
     try {
       const response = await Axios.post("/login", { username, password });
       if (response.data) {
-        localStorage.setItem("complexappToken", response.data.token);
-        localStorage.setItem("complexappUsername", response.data.username);
-        localStorage.setItem("complexappAvatar", response.data.avatar);
-        setLoggedIn(true);
+        appDispatch({ type: "login", data: response.data });
       } else {
         console.log("Email and/or password is wrong");
       }

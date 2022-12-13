@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import LoggedOut from "./Loggedout";
 import HeaderLoggedIn from "./HeaderLoggedIn";
+import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 
 function Header(props) {
+  const appState = useContext(StateContext);
   return (
     <header className="header-bar bg-primary mb-3">
       <div className="container d-flex flex-column flex-md-row align-items-center p-3">
@@ -13,7 +16,7 @@ function Header(props) {
             ComplexApp{" "}
           </Link>
         </h4>
-        {props.loggedIn ? <HeaderLoggedIn /> : <LoggedOut />}
+        {appState.loggedIn ? <HeaderLoggedIn /> : <LoggedOut />}
       </div>
     </header>
   );
