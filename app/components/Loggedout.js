@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import Page from "./Page";
 import Axios from "axios";
-import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 
 function LoggedOut(props) {

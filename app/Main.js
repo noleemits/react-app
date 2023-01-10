@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Axios from "axios";
 Axios.defaults.baseURL = "http://localhost:8080";
 
+import StateContext from "./StateContext";
+import DispatchContext from "./DispatchContext";
+
 //components
 import Header from "./components/Header";
 import HomeGuest from "./components/HomeGuest";
@@ -15,8 +18,6 @@ import Terms from "./components/Terms";
 import CreatePost from "./components/CreatePost";
 import ViewSinglePost from "./components/ViewSinglePost";
 import FlashMessages from "./components/FlashMessages";
-import StateContext from "./StateContext";
-import DispatchContext from "./DispatchContext";
 import Profile from "./components/Profile";
 
 function Main() {

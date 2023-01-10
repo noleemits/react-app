@@ -16,7 +16,7 @@ function CreatePost(props) {
     e.preventDefault();
     try {
       const response = await Axios.post("/create-post", { title, body, token: appState.user.token });
-
+      //redirect to a new post url
       appDispatch({ type: "flashMessage", value: "Congrats, you just created a new post my friend!" });
       console.log("New post was created");
       navigate(`/post/${response.data}`);

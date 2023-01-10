@@ -7,6 +7,7 @@ import StateContext from "../StateContext";
 function Profile() {
   const { username } = useParams();
   const appState = useContext(StateContext);
+
   const [profileData, setProfileData] = useState({
     profileUsername: "...",
     profileAvatar: "https://gravatar.com/avatar/placeholder?s=128",
@@ -22,9 +23,8 @@ function Profile() {
     async function fectData() {
       try {
         const response = await Axios.post(`/profile/${username}`, { token: appState.user.token });
-        console.log(response);
         {
-          /*  setProfileData(response.data); */
+          setProfileData(response.data);
         }
       } catch (error) {
         console.log(error);
@@ -44,13 +44,13 @@ function Profile() {
 
       <div className="profile-nav nav nav-tabs pt-2 mb-4">
         <a href="#" className="active nav-item nav-link">
-          {/* Posts: {profileData.counts.postCount} */}
+          Posts: {profileData.counts.postCount}
         </a>
         <a href="#" className="nav-item nav-link">
-          {/* Followers: {profileData.counts.followerCount}*/}
+          Followers: {profileData.counts.followerCount}
         </a>
         <a href="#" className="nav-item nav-link">
-          {/* Following: {profileData.counts.followingCount}*/}
+          Following: {profileData.counts.followingCount}
         </a>
       </div>
 
